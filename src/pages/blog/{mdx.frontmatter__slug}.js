@@ -14,6 +14,12 @@ const BlogPost = ({ data, children }) => {
         image={image}
         alt={data.mdx.frontmatter.hero_image_alt}
       />
+      <p>
+        Photo Credit:{" "}
+        <a href={data.mdx.frontmatter.hero_image_credit_link}>
+          {data.mdx.frontmatter.hero_image_credit_text}
+        </a>
+      </p>
       {children}
     </Layout>
   )
@@ -26,7 +32,7 @@ export const query = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         hero_image_alt
-        hero_image_credit_lint
+        hero_image_credit_link
         hero_image_credit_text
         hero_image {
           childImageSharp {
