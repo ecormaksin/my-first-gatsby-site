@@ -5,19 +5,20 @@ import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 
 const BlogPost = ({ data, children }) => {
-  const image = getImage(data.mdx.frontmatter.hero_image)
+  const frontmatter = data.mdx.frontmatter
+  const image = getImage(frontmatter.hero_image)
 
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>Posted: {data.mdx.frontmatter.date}</p>
+    <Layout pageTitle={frontmatter.title}>
+      <p>Posted: {frontmatter.date}</p>
       <GatsbyImage 
         image={image}
-        alt={data.mdx.frontmatter.hero_image_alt}
+        alt={frontmatter.hero_image_alt}
       />
       <p>
         Photo Credit:{" "}
-        <a href={data.mdx.frontmatter.hero_image_credit_link}>
-          {data.mdx.frontmatter.hero_image_credit_text}
+        <a href={frontmatter.hero_image_credit_link}>
+          {frontmatter.hero_image_credit_text}
         </a>
       </p>
       {children}
